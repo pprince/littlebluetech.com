@@ -17,6 +17,6 @@
     "garnish": "~0.2.0",
     "icomoon": "~0.0.1",
     "etlinefont-bower": "~1.0.1",
-    "responsive-nav": "~1.0.32"
+    "responsive-nav": "cappslock/responsive-nav.js#190145c74dd2f49b76eec6335b3d18b1eba7abbd"
   }
 }
