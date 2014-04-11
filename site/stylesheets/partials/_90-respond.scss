@@ -11,9 +11,7 @@
     // Is the default, defines the base that is overridden later above certain widths (breakpoints).
     // e.g., smaller/portrait phones, ie6 unless you specify a fallback, ...
 
-    #{ $selector-sticky-footer-wrap },
-    #{ $selector-sticky-footer-foot }, 
-    #{ $selector-page-wrap },
+    #{ $selector-page-middle }
     {
         @include container(1600px);
     }
@@ -52,13 +50,12 @@
 
     // e.g., larger/landscape phones, smaller tablets
     @include breakpoint ($breakpoint-small) {
-        body {
+        #{$selector-page-middle} {
             @include padding-h($base-line-height/2);
         }
 
         #{$selector-main-content},
-        #{$selector-page-sidebar},
-        #{$selector-page-navbar} {
+        #{$selector-page-sidebar} {
             @include border-radius;
             @include box-shadow();
         }
@@ -70,15 +67,12 @@
 
     // e.g., smaller desktops, larger tablets
     // TWO COLUMNS
-    @include breakpoint ($breakpoint-medium) {
+    @include breakpoint ($breakpoint-medium, '.no-mq') {
         #{$selector-main-content} {
             @include span(first 8);
         }
         #{$selector-page-sidebar} {
             @include span(last 4);
-        }
-        body {
-            @include padding-h($base-line-height);
         }
         #{ $selector-page-middle } {
             @include padding-h(gutter());
@@ -89,22 +83,5 @@
             $selector-sticky-footer-push,
             $selector-sticky-footer-foot
         );
-    }
-
-
-    // LARGE and up
-    // -----
-
-    // medium desktops
-    @include breakpoint ($breakpoint-large, '.no-mq') {
-    }
-
-
-    // X-LARGE and up
-    // -------
-
-    // larger desktops
-    // (Not needed for this design.)
-    @include breakpoint ($breakpoint-x-large) {
     }
 }

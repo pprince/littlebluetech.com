@@ -1,35 +1,77 @@
-#{ $selector-page-navbar } {
+@import "../../../lib/bower/sass/responsive-nav/responsive-nav.scss";
+
+#{ $selector-page-navbar }, .nav-toggle {
     font-weight: bold;
+    @include alpha-me(background-color, rgba(black, 0.50), $base-color);
+}
+
+.nav-toggle {
+    display: block;
+    text-align: right;
+    vertical-align: middle;
+    @include adjust-font-size-to(200%, 2);
+    @include icon($icon: 'menu', $position: 'after') {
+        @include margin-h(0.5em); 
+    }
+}
+
+#{ $selector-page-navbar } {
     text-align: center;
-    @include margin-trailer;
-    @include full;
     ul {
-        @include inline-block-list();
         li {
             a {
-                display: block;
-                padding: 0 0.6em;
-                @include adjust-font-size-to(122%, 2);
-                @include border-radius($base-line-height);
-                &:hover {
-                    background: rgba(white, 0.20);
-                    text-decoration: none;
-                }
-                &:hover[href="#"], &:hover.current {
-                    background: transparent;
-                }
+                @include adjust-font-size-to(150%, 2);
             }
-            h1 {
-                display: none;
-            }
-
-            a[href='/'] {
-                @include icon('home-3');
-            }
-            a[href='/companion'] {
-                @include icon('rocket');
-            }
-
         }
     }
 }
+
+@include susy-breakpoint(40em, 4 gutters 1/4 split) {
+    .nav-toggle {
+        display: none;
+    }
+    #{ $selector-page-navbar } {
+        ul {
+            @include container;
+            li {
+                @include gallery(1);
+            }
+        }
+    }
+}
+
+//#{ $selector-page-navbar } {
+//    font-weight: bold;
+//    text-align: center;
+//    background-color: #ddd;
+//    color: #222;
+//    @include full;
+//    ul {
+//        @include inline-block-list();
+//        li {
+//            a {
+//                display: block;
+//                @include adjust-font-size-to(122%, 2);
+//                @include border-radius($base-line-height);
+//                &:hover {
+//                    background: rgba(white, 0.20);
+//                    text-decoration: none;
+//                }
+//                &:hover[href="#"], &:hover.current {
+//                    background: transparent;
+//                }
+//            }
+//            h1 {
+//                display: none;
+//            }
+//
+//            a[href='/'] {
+//                @include icon('home-3');
+//            }
+//            a[href='/docs'] {
+//                @include icon('rocket');
+//            }
+//
+//        }
+//    }
+//}

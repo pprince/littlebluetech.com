@@ -10,7 +10,6 @@ html {
     );
 }
 
-#{$selector-page-navbar},
 #{$selector-page-sidebar},
 #{$selector-main-content} {
     @include alpha-me(background-color, rgba(black, 0.70), $base-color);

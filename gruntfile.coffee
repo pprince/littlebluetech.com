@@ -154,7 +154,7 @@ module.exports = (grunt) ->
         options:
           shim:
             jquery:
-              path: 'lib/bower/js/jquery/jquery.min.js'
+              path: 'lib/bower/js/jquery/jquery.js'
               exports: '$'
           debug: false
         src: '<%= browserify.libsdev.src %>'
@@ -178,18 +178,27 @@ module.exports = (grunt) ->
 
 
     bowercopy:
+
       iconfonts:
         files:
           'site/fonts': [
-            'etlinefont-bower/fonts/et-line.{eot,svg,ttf,woff}'
-            'icomoon/fonts/icomoon.{eot,svg,ttf,woff}'
+            'etlinefont-bower/fonts/et-line.{eot,svg,ttf,woff,otf}'
+            'icomoon/fonts/icomoon.{eot,svg,ttf,woff,otf}'
           ]
+
       jslibs:
         files:
           'lib/bower/js/jquery': [
             'jquery/dist/jquery.js'
-            'jquery/dist/jquery.min.js'
           ]
+
+      responsivenav:
+        files:
+          'lib/bower/js/responsive-nav': [
+            'responsive-nav/responsive-nav.js'
+          ]
+          'lib/bower/sass/responsive-nav/responsive-nav.scss': 'responsive-nav/responsive-nav.css'
+
       garnish:
         files:
           'lib/bower/sass/garnish/': [
