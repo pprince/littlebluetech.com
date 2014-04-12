@@ -1,6 +1,6 @@
 @import "compass/layout/sticky-footer";
 
-@include with-layout(12) {
+@include with-layout(12 no-gutters center) {
 
     // BASE
     // ====
@@ -24,10 +24,6 @@
     {
         @include span(full);
         text-align: center;
-    }
-
-    #{$selector-page-middle} {
-        @include span(full nest);
     }
 
     #{$selector-main-content},
